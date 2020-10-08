@@ -4,6 +4,7 @@ import React, {
   InputHTMLAttributes,
   useState,
   useEffect,
+  memo,
 } from 'react';
 import styled from 'styled-components';
 
@@ -120,4 +121,4 @@ const Input = ({ error, containerProps, ...props }: Props) => {
   );
 };
 
-export default Input;
+export default memo(Input);

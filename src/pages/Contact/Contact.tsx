@@ -3,6 +3,9 @@ import React, { Fragment } from 'react';
 import { Form } from 'reactstrap';
 import PageTitle from '~/components/PageTitle/PageTitle';
 import Input from '~/components/Input/Input';
+import PageTransition from '~/components/PageTransition/PageTransition';
+import PageSubtitle from '~/components/PageSubtitle/PageSubtitle';
+import PageDescription from '~/components/PageDescription/PageDescription';
 
 type Values = {
   briefing: string;
@@ -24,8 +27,12 @@ const Contact = () => {
   const handleSubmit = () => {};
 
   return (
-    <Fragment>
+    <PageTransition>
       <PageTitle>Contato</PageTitle>
+
+      <PageSubtitle>Formulário de contato</PageSubtitle>
+
+      <PageDescription>Maneiras de me encontrar</PageDescription>
 
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         {({ values, errors }) => (
@@ -36,7 +43,7 @@ const Contact = () => {
           </Form>
         )}
       </Formik>
-    </Fragment>
+    </PageTransition>
   );
 };
 

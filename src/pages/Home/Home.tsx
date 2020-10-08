@@ -1,30 +1,9 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import PageDescription from '~/components/PageDescription/PageDescription';
+import PageSubtitle from '~/components/PageSubtitle/PageSubtitle';
 import PageTitle from '~/components/PageTitle/PageTitle';
-
-const Title = styled.h1`
-  color: white;
-  font-weight: bold;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-
-  span {
-    color: #ff79c6;
-  }
-
-  @media (min-width: 767px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const Role = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-
-  @media (min-width: 767px) {
-    font-size: 1.7rem;
-  }
-`;
+import PageTransition from '~/components/PageTransition/PageTransition';
 
 const Description = styled.p`
   color: white;
@@ -38,21 +17,21 @@ const Description = styled.p`
 
 const Home: React.FC = () => {
   return (
-    <Fragment>
+    <PageTransition>
       <PageTitle>Sobre min</PageTitle>
 
-      <Title>
+      <PageSubtitle>
         Jhonnatthan Santana<span>.</span>
-      </Title>
+      </PageSubtitle>
 
-      <Role>Web and Mobile developer.</Role>
+      <PageDescription>Web and Mobile developer.</PageDescription>
 
       <Description>
         Graduated in Computer Technician at ETEC Dra Ruth Cardoso (June / 2017)
         and studying Internet Systems at FATEC Rubens Lara. Developer Focused on
         Mobile and Web programming.
       </Description>
-    </Fragment>
+    </PageTransition>
   );
 };
 
