@@ -29,7 +29,8 @@ const Main = styled.main`
   padding: 20px 0;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(14, 15, 45, 1), rgba(45, 11, 42, 1));
+  background: linear-gradient(rgba(14, 15, 45, 0.95), rgba(45, 11, 42, 0.92)),
+    url('/assets/bg.jpg');
   background-size: cover;
   background-position: center center;
 `;
