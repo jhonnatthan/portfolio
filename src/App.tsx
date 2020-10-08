@@ -138,6 +138,24 @@ const MenuItemLink = styled(NavLink)`
   svg {
     width: 25px;
     height: 25px;
+    will-change: fill;
+    transition: fill 500ms;
+  }
+
+  p {
+    will-change: color;
+    transition: color 500ms;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    left: -20px;
+    background-color: transparent;
+    will-change: background-color;
+    transition: background-color 500ms;
   }
 
   &.active {
@@ -150,11 +168,6 @@ const MenuItemLink = styled(NavLink)`
     }
 
     &:before {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 100%;
-      left: -20px;
       background-color: #ff79c6;
     }
   }
