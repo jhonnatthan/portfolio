@@ -2,6 +2,10 @@ import React, { memo, ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.p`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 

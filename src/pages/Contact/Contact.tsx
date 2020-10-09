@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Form } from 'reactstrap';
 import PageTitle from '~/components/PageTitle/PageTitle';
 import Input from '~/components/Input/Input';

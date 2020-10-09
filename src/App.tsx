@@ -3,7 +3,13 @@ import { Container } from 'reactstrap';
 import styled, { createGlobalStyle } from 'styled-components';
 import Routes from './routes';
 
-import { FaBriefcase, FaBuilding, FaEnvelope, FaUserAlt } from 'react-icons/fa';
+import {
+  FaBriefcase,
+  FaBuilding,
+  FaEnvelope,
+  FaTasks,
+  FaUserAlt,
+} from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { NavLink, BrowserRouter as Router } from 'react-router-dom';
 
@@ -26,7 +32,7 @@ const Main = styled.main`
   flex: 1;
   min-height: 100vh;
   min-width: 100%;
-  padding: 20px 0;
+  padding: 1.5rem 0;
   justify-content: center;
   align-items: center;
   background: linear-gradient(rgba(14, 15, 45, 0.95), rgba(45, 11, 42, 0.92)),
@@ -87,17 +93,44 @@ const SideBar = styled.aside`
 const Content = styled.div`
   flex: 1;
   background-color: #282a37;
+  max-height: 80vh;
+  overflow: hidden;
+  overflow-y: auto;
 
-  padding: 30px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  padding: 2rem;
+
+  @media (min-width: 992px) {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #282a37;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #ff79c6;
+    border-radius: 100px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #da58a3;
+  }
 `;
 
 const ProfilePhoto = styled.img`
   width: 60px;
   height: 60px;
   border-radius: 200px;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 
   will-change: width, height;
   transition: width 1s, height 1s;
@@ -122,7 +155,7 @@ const MenuItem = styled.li`
   width: 100%;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.5rem;
   text-align: center;
 `;
 
@@ -133,8 +166,8 @@ const MenuItemLink = styled(NavLink)`
   align-items: center;
   justify-content: center;
   text-decoration: none !important;
-  padding: 10px 0;
-  margin: 10px 0;
+  padding: 0.7rem 0;
+  margin: 0.7rem 0;
 
   svg {
     width: 25px;
@@ -184,7 +217,7 @@ const MenuItemText = styled.p`
   align-items: center;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.4rem;
   margin: 0;
 
   @media (min-width: 767px) {
@@ -215,6 +248,11 @@ const menuItems: MenuItemData[] = [
     route: '/formacao',
   },
   {
+    title: 'Projetos',
+    Icon: FaTasks,
+    route: '/projetos',
+  },
+  {
     title: 'Contato',
     Icon: FaEnvelope,
     route: '/contato',
@@ -222,6 +260,18 @@ const menuItems: MenuItemData[] = [
 ];
 
 function App() {
+  const renderMenuItems = (
+    { title, route, Icon }: MenuItemData,
+    index: Number
+  ) => (
+    <MenuItem key={String(index)}>
+      <MenuItemLink to={route} exact activeClassName="active">
+        <Icon className="text-white mr-md-2" />
+        <MenuItemText>{title}</MenuItemText>
+      </MenuItemLink>
+    </MenuItem>
+  );
+
   return (
     <Router>
       <GlobalStyle />
@@ -232,16 +282,7 @@ function App() {
             <SideBar>
               <ProfilePhoto src="https://avatars3.githubusercontent.com/u/8497163?s=460&u=f2a1978c7962799b353155322a928dc0d42298cc&v=4" />
 
-              <MenuList>
-                {menuItems.map(({ title, route, Icon }, index) => (
-                  <MenuItem key={String(index)}>
-                    <MenuItemLink to={route} exact activeClassName="active">
-                      <Icon className="text-white mr-md-2" />
-                      <MenuItemText>{title}</MenuItemText>
-                    </MenuItemLink>
-                  </MenuItem>
-                ))}
-              </MenuList>
+              <MenuList>{menuItems.map(renderMenuItems)}</MenuList>
             </SideBar>
             <Content>
               <Routes />
