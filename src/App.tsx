@@ -78,7 +78,7 @@ const SideBar = styled.aside`
   transition: width 500ms;
 
   @media (min-width: 767px) {
-    width: 30%;
+    width: 35%;
   }
 
   @media (min-width: 992px) {
@@ -238,7 +238,7 @@ const menuItems: MenuItemData[] = [
     route: '/',
   },
   {
-    title: 'Experiencia',
+    title: 'Experiencias',
     Icon: FaBriefcase,
     route: '/experiencias',
   },
@@ -247,7 +247,7 @@ const menuItems: MenuItemData[] = [
     Icon: FaBuilding,
     route: '/formacao',
   },
-  {
+  /* {
     title: 'Projetos',
     Icon: FaTasks,
     route: '/projetos',
@@ -256,7 +256,7 @@ const menuItems: MenuItemData[] = [
     title: 'Contato',
     Icon: FaEnvelope,
     route: '/contato',
-  },
+  }, */
 ];
 
 function App() {

@@ -28,27 +28,42 @@ const Description = styled.p`
 const frontEndSkills: Skill[] = [
   {
     name: 'Javascript',
-    level: 3,
-  },
-  {
-    name: 'React Native',
-    level: 3,
+    level: 5,
   },
   {
     name: 'React JS',
-    level: 3,
+    level: 4,
   },
   {
     name: 'HTML',
-    level: 3,
+    level: 5,
   },
   {
     name: 'CSS',
-    level: 3,
+    level: 5,
   },
   {
     name: 'Angular',
+    level: 3,
+  },
+];
+
+const mobileSkills: Skill[] = [
+  {
+    name: 'React Native',
+    level: 4,
+  },
+  {
+    name: 'Ionic',
+    level: 4,
+  },
+  {
+    name: 'Android',
     level: 2,
+  },
+  {
+    name: 'Swift',
+    level: 1,
   },
 ];
 
@@ -58,23 +73,31 @@ const backEndSkills: Skill[] = [
     level: 3,
   },
   {
+    name: 'Wordpress',
+    level: 4,
+  },
+  {
     name: 'Laravel',
-    level: 2,
+    level: 3,
   },
   {
     name: 'Node JS',
-    level: 2,
+    level: 3,
   },
   {
     name: 'Adonis JS',
-    level: 2,
+    level: 3,
   },
 ];
 
 const databaseSkills: Skill[] = [
   {
     name: 'MySql',
-    level: 3,
+    level: 4,
+  },
+  {
+    name: 'GraphQL',
+    level: 1,
   },
   {
     name: 'MongoDB',
@@ -85,11 +108,11 @@ const databaseSkills: Skill[] = [
 const languageSkills: Skill[] = [
   {
     name: 'Português',
-    level: 3,
+    level: 5,
   },
   {
     name: 'Inglês',
-    level: 2,
+    level: 3,
   },
 ];
 
@@ -128,16 +151,19 @@ const Home = () => {
       <PageSubtitle>Habilidades</PageSubtitle>
 
       <Row>
-        <Col xs={12} md={6} lg={4} xl={3} className="mb-3 ">
+        <Col xs={12} md={12} lg={6} xl={4} className="mb-3 ">
           <Skills Icon={FaStar} name="Front end" items={frontEndSkills} />
         </Col>
-        <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
-          <Skills Icon={FaStar} name="Front end" items={backEndSkills} />
+        <Col xs={12} md={12} lg={6} xl={4} className="mb-3">
+          <Skills Icon={FaStar} name="Mobile" items={mobileSkills} />
         </Col>
-        <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
+        <Col xs={12} md={12} lg={6} xl={4} className="mb-3">
+          <Skills Icon={FaStar} name="Back end" items={backEndSkills} />
+        </Col>
+        <Col xs={12} md={12} lg={6} xl={4} className="mb-3">
           <Skills Icon={FaStar} name="BD" items={databaseSkills} />
         </Col>
-        <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
+        <Col xs={12} md={12} lg={6} xl={4} className="mb-3">
           <Skills Icon={FaStar} name="Linguagem" items={languageSkills} />
         </Col>
       </Row>

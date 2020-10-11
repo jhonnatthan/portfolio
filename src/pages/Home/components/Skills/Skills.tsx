@@ -50,6 +50,13 @@ const SkillItemText = styled.h2`
   margin-right: 0.5rem;
 `;
 
+const SkillStars = styled.div`
+  display: flex;
+  flex-direction: reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 export type Skill = {
   name: string;
   level: number;
@@ -62,9 +69,11 @@ type Props = {
 };
 
 const skillLabel: { [key in number]: string } = {
-  1: 'Básico',
-  2: 'Intermediário',
-  3: 'Avançado',
+  1: 'Estudando',
+  2: 'Básico',
+  3: 'Intermediário',
+  4: 'Avançado',
+  5: 'Ninja',
 };
 
 const Skills = ({ Icon, name, items }: Props) => {
@@ -87,7 +96,7 @@ const Skills = ({ Icon, name, items }: Props) => {
       <SkillItemContainer id={ID}>
         <SkillItem index={index}>
           <SkillItemText>{item.name}</SkillItemText>
-          {starsArr.map(renderStars)}
+          <SkillStars>{starsArr.map(renderStars)}</SkillStars>
         </SkillItem>
         <UncontrolledTooltip placement="top" target={ID}>
           {skillLabel[item.level]}
